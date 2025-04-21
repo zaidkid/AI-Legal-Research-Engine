@@ -1,0 +1,17 @@
+# Node (Next.js)
+node_modules/
+.next/
+.env
+
+# Python (Flask)
+.venv/
+__pycache__/
+*.pyc
+
+# System
+.DS_Store
+
+# Logs
+*.log
+
+venv/

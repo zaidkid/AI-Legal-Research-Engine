@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #111827;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🔥 Add this part for the input focus animation */
+@layer utilities {
+  @keyframes bounce-glow {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+  }
+
+  .focus\:animate-bounce-glow:focus {
+    animation: bounce-glow 0.4s ease-in-out;
+  }
+}
