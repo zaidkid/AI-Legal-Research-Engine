@@ -3,12 +3,19 @@ from flask_cors import CORS
 import os
 import requests
 from qa_engine import get_answer  # Your local model function
+from dotenv import load_dotenv
+
+# Load environment variables from .env when running locally
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# Directly written Gemini API URL with key
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB0Qvji1MJe0EG-2fCWQ9BHfx4a2dyrHvM"
+# Fetch Gemini API Key and Base URL from environment variables
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+GEMINI_API_URL_BASE = os.getenv('GEMINI_API_URL')  # without `?key=...`
+GEMINI_API_URL = f"{GEMINI_API_URL_BASE}?key={GEMINI_API_KEY}"
+
 
 @app.route("/ask", methods=["POST"])
 def ask():
@@ -83,4 +90,5 @@ def clean_answer(answer):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render uses PORT variable
+    app.run(debug=True, host='0.0.0.0', port=port)
