@@ -89,8 +89,3 @@ def clean_answer(answer):
     Function to clean the answer by removing '**' (bold formatting) from the response.
     """
     return answer.replace("**", "")
-
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Render uses PORT variable
-    app.run(debug=True, host='0.0.0.0', port=port)
