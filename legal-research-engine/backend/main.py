@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
+import sys
 import requests
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'backend')))
 from qa_engine import get_answer  # Your local model function
 from dotenv import load_dotenv
 
