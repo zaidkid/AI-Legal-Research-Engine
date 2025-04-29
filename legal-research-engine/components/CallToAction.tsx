@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function CallToAction() {
   const handleScrollToSearch = () => {
-    const input = document.getElementById("search-input");
+    const input = document.getElementById("search-input") as HTMLInputElement | null;
     if (input) {
       input.scrollIntoView({ behavior: "smooth", block: "center" });
       setTimeout(() => input.focus(), 600); // small delay to ensure it's in view

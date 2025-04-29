@@ -18,11 +18,11 @@ export default function Contact() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // In production, integrate with an API
     alert("Message sent successfully!");
