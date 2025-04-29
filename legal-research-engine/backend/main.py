@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import requests
-from backend.qa_engine import get_answer  # Your local model function
+from qa_engine import get_answer  # Your local model function
 from dotenv import load_dotenv
 
 # Load environment variables from .env when running locally
