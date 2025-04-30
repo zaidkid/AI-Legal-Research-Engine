@@ -18,13 +18,14 @@ export default function Contact() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In production, integrate with an API
     alert("Message sent successfully!");
     setForm({ name: "", email: "", message: "" });
   };
@@ -51,7 +52,8 @@ export default function Contact() {
               isDark ? "text-gray-300" : "text-gray-600"
             }`}
           >
-            We'd love to hear from you. Fill out the form or reach us using the info below.
+            We&apos;d love to hear from you. Fill out the form or reach us using
+            the info below.
           </p>
 
           <div className="grid md:grid-cols-2 gap-10">
