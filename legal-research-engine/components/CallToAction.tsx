@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 export default function CallToAction() {
   const handleScrollToSearch = () => {
     const input = document.getElementById("search-input") as HTMLInputElement | null;
